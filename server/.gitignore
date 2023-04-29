@@ -1,0 +1,10 @@
+.venv/
+poetry.lock
+__pycache__/
+dist/
+build/
+.mypy_cache/
+.pytest_cache/
+.vscode/
+Session.vim
+.env
