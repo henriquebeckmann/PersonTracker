@@ -5,7 +5,6 @@ import face_recognition as fr
 import numpy as np
 
 ROOT_PATH = os.getenv("ROOT_PATH")
-UPLOAD_DIRECTORY = f"{ROOT_PATH}/uploads"
 
 def get_encoded_faces():
     """
@@ -59,4 +58,7 @@ def classify_face(im):
         face_names.append(name)
 
         return face_names
+
+if __name__ == "__main__":
+    print(classify_face("bill gates.jpg"))
 

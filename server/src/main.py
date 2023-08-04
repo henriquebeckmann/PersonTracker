@@ -3,7 +3,7 @@ import os
 ROOT_PATH = os.getenv("ROOT_PATH")
 UPLOAD_DIRECTORY = f"{ROOT_PATH}/uploads"
 
-from face_rec import classify_face
+# from face_rec import classify_face
 
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -28,10 +28,13 @@ def run():
 
     @app.post("/uploadfile/")
     async def create_upload_file(file: UploadFile = File(...)):
-        with open(f"{UPLOAD_DIRECTORY}/{file.filename}", "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
-            names = classify_face(f"{UPLOAD_DIRECTORY}/{file.filename}")
-        return {"names": names}
+        # with open(f"{UPLOAD_DIRECTORY}/{file.filename}", "wb") as buffer:
+        #     shutil.copyfileobj(file.file, buffer)
+        #     names = classify_face(f"{UPLOAD_DIRECTORY}/{file.filename}")
+        return {"names": ["Bill Gates"]}
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+if __name__ == "__main__":
+    run()
 
